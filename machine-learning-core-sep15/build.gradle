@@ -1,0 +1,52 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+	}
+	dependencies {
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+jar {
+	baseName = 'viademy103'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+
+dependencies 
+{
+	compile 'net.sf.opencsv:opencsv:2.3'
+	compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'	
+	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
+	compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.2.2'
+	
+	// jsoup HTML parser library @ http://jsoup.org/
+	compile 'org.jsoup:jsoup:1.10.1'
+	
+	
+	compile group: 'org.apache.lucene', name: 'lucene-core', version: '6.6.0'
+	compile group: 'org.apache.lucene', name: 'lucene-analyzers-common', version: '6.6.0'
+	compile group: 'org.apache.lucene', name: 'lucene-queryparser', version: '6.6.0'
+	compile group: 'org.apache.lucene', name: 'lucene-queries', version: '6.6.0'	
+	
+}
+
+
+eclipse {
+	classpath {
+		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+	}
+}

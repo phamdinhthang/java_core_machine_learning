@@ -18,6 +18,13 @@ public class CSVUtil {
 		rd.close();
 		return res;
 	}
+	public static List<String[]> readCSV(File f) throws Exception {
+		CSVReader rd = new CSVReader(new FileReader(f));
+		List<String[]> res = new ArrayList<>();
+		res = rd.readAll();
+		rd.close();
+		return res;
+	}
 	public static void writeCSV(List<String[]> contents,String path) throws Exception {
 		CSVWriter wt = new CSVWriter(new FileWriter(new File(path)));
 		wt.writeAll(contents);

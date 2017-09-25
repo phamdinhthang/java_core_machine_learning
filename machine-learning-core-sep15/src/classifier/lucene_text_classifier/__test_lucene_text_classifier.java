@@ -6,7 +6,8 @@ import java.util.List;
 
 public class __test_lucene_text_classifier {
 	public static void main(String[] args) throws Exception {
-		File news_group = new File("/Users/phamdinhthang/Desktop/20_newsgroups");
+		String filePath = "/Users/phamdinhthang/Desktop/Datasets/20_newsgroups";
+		File news_group = new File(filePath);
 		List<News> news = News.scanNews(news_group);
 		LuceneTextClassifier cl = new LuceneTextClassifier();
 		cl.train(news);

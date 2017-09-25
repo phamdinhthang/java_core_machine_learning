@@ -21,7 +21,7 @@ public class FileDownloader {
 		File desktop = new File(System.getProperty("user.home"), "Desktop");
 		URL url = new URL(src);
 		ReadableByteChannel rbc = Channels.newChannel(url.openStream());
-		File outputFile = new File(desktop.getAbsolutePath() + File.separator + "downloaded");
+		File outputFile = new File(desktop.getAbsolutePath() + File.separator + "temporary_downloaded");
 		FileOutputStream fos = new FileOutputStream(outputFile);
 		fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
 		fos.close();
